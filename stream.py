@@ -9,6 +9,7 @@ def openFM(frequency):
     sox_process = subprocess.Popen(sox_cmd, stdin=rtlfm_process.stdout, stdout=subprocess.PIPE)
     ffmpeg_cmd = ["ffmpeg", "-f", "wav", "-i", "-", "-f", "mp3", "-"]
     ffmpeg_process = subprocess.Popen(ffmpeg_cmd, stdin=sox_process.stdout)
+    return ffmpeg_process.stdout
 
         
         
