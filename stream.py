@@ -11,5 +11,4 @@ def openFM(frequency):
 #    ffmpeg_cmd = ["ffmpeg", "-f", "wav", "-i", "-", "-f", "mp3", "-listen", "1", f"{baseurl}/stream"]
     
     ffmpeg_process = subprocess.Popen(ffmpeg_cmd, stdin=sox_process.stdout, stdout=subprocess.PIPE)
-    return ffmpeg_process.stdout
 # openFM("90.5")
