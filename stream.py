@@ -14,4 +14,3 @@ def openFM(frequency):
         
 
 
-openFM("93.7")
