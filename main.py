@@ -15,5 +15,4 @@ def streamRoute(type, frequency):
                     break
                 yield chunk
         return Response(generate(), mimetype="audio/mpeg")
-    
 app.run(host="0.0.0.0", port=8234)
