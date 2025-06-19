@@ -1,9 +1,10 @@
-import flask, os, stream
+import flask, os
+import stream
 from flask import Flask, send_from_directory 
 app = Flask(__name__)
 
 @app.route("/stream/<type>/<frequency>")
-def stream(type, frequency):
+def streamRoute(type, frequency):
     if type == "fm":
         print("Opening FM stream:" + frequency)
         stream.openFM(frequency)
