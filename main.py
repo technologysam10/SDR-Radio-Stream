@@ -9,10 +9,18 @@ def streamRoute(type, frequency):
         print("Opening FM stream: " + frequency)
         feed = stream.openFM(frequency)
         def generate():
-            while True:
-                chunk = feed.read(4096)
-                if not chunk:
-                    break
-                yield chunk
+            try:
+                while True:
+                    chunk = feed.stdout.read(4096)
+                    if not chunk:
+                        break
+                    print("returning chunk")
+                    yield chunk
+            finally:
+                feed.wait()
+                feed.stdout.close()
+
+
+                
         return Response(generate(), mimetype="audio/mpeg")
 app.run(host="0.0.0.0", port=8234)
